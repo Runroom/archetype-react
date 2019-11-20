@@ -1,0 +1,13 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": [
+      "**/*.js",
+      "**/*.jsx"
+    ]
+  },
+  "rules": {
+    "no-console": { "severity": "warning" },
+    "jsx-no-lambda": false
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "name": "archetype-react",
+  "url": "",
+  "version": "0.0.0",
+  "description": "Next + Apollo archetype",
+  "scripts": {
+    "dev": "node server.js",
+    "next:dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "precommit": "lint-staged",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@testing-library/react": "^9.3.2",
+    "@types/jest": "^24.0.23",
+    "@types/json-schema": "^7.0.3",
+    "@types/node": "^12.12.8",
+    "@types/react": "^16.9.11",
+    "@types/styled-components": "^4.4.0",
+    "@types/url-join": "^4.0.0",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-emotion": "^10.0.23",
+    "babel-plugin-styled-components": "^1.10.6",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.3",
+    "nextjs-sitemap-generator": "^0.3.3",
+    "prettier": "^1.19.1",
+    "react-test-renderer": "^16.12.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.3",
+    "@apollo/react-ssr": "^3.1.3",
+    "apollo-boost": "^0.4.4",
+    "firebase": "^7.4.0",
+    "graphql": "^14.5.8",
+    "isomorphic-fetch": "^2.2.1",
+    "localforage": "^1.7.3",
+    "next": "^9.1.3",
+    "next-apollo": "^3.1.10",
+    "next-offline": "5.0.0-beta.9",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-gtm-module": "^2.0.8",
+    "styled-components": "^4.4.1",
+    "url-join": "^4.0.1",
+    "uuid": "^3.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
