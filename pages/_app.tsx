@@ -5,12 +5,12 @@ import { ThemeProvider } from 'styled-components';
 import TagManager from 'react-gtm-module';
 
 import GlobalStyles from '../ui/Globals';
-import { GTM_CODE } from '../config/site';
-import theme from '../config/theme';
+import { gtmCode } from '../config/site.json';
+import theme from '../config/theme.json';
 
 class MyApp extends App {
   componentDidMount() {
-    TagManager.initialize({ id: GTM_CODE });
+    TagManager.initialize({ id: gtmCode });
   }
 
   render() {
@@ -23,7 +23,7 @@ class MyApp extends App {
         </Head>
         <noscript>
           <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_CODE}`}
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmCode}`}
             height='0'
             width='0'
             title='GTM Tracking'

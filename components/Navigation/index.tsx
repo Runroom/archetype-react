@@ -16,7 +16,7 @@ const Navigation = () => {
           {t('home.menu')}
         </LinkText>
       </Link>
-      <Link href='/[lang]/about' as={`/${locale}/artist`}>
+      <Link href='/[lang]/about' as={`/${locale}/about`}>
         <LinkText isActive={!!(pathname === '/about' && 'is-active')}>
           {t('about.menu')}
         </LinkText>
