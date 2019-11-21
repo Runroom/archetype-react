@@ -4,7 +4,7 @@ import { act, render } from '@testing-library/react';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ThemeProvider } from 'styled-components';
 
-import About from '../pages/about';
+import About from '../pages/[lang]/about';
 import theme from '../config/theme';
 
 it('says "we integrate Apollo seamlessly with Next"', async () => {

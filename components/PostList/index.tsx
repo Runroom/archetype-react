@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/react-hooks';
 
+import useTranslation from '../../lib/hooks/useTranslation';
 import { GET_POSTS } from '../../lib/gql/posts';
 import Button from '../../ui/Button';
 import PostUpvoter from '../PostUpvoter';
@@ -23,6 +24,7 @@ const loadMorePosts = (data, fetchMore) =>
   });
 
 const PostList = () => {
+  const { t } = useTranslation();
   const { loading, error, data, fetchMore } = useQuery(GET_POSTS, {
     variables: { skip: 0, first: POSTS_PER_PAGE },
     notifyOnNetworkStatusChange: true
@@ -33,7 +35,7 @@ const PostList = () => {
   return areMorePosts ? (
     <>
       <ol data-testid='postListList'>
-        {data.allPosts.map((post, index) => (
+        {data.allPosts.map(post => (
           <li key={post.id} data-testid='postListListItem'>
             <a href={post.url} target='_blank' rel='noreferrer noopener'>
               {post.title}
@@ -44,14 +46,14 @@ const PostList = () => {
       </ol>
       {areMorePosts ? (
         <Button onClick={() => loadMorePosts(data, fetchMore)}>
-          {loading ? 'Loading...' : 'Show More'}
+          {loading ? t('loading') : t('showMore')}
         </Button>
       ) : (
         ''
       )}
     </>
   ) : (
-    <div>Loading...</div>
+    <div>{t('loading')}</div>
   );
 };
 

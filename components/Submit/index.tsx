@@ -1,35 +1,13 @@
-import { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
-import { Form, H1, Input } from "./styles";
+import { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
 
-const CREATE_POST = gql`
-  mutation createPost($title: String!, $url: String!) {
-    createPost(title: $title, url: $url) {
-      id
-      title
-      votes
-      url
-      createdAt
-    }
-  }
-`;
+import useTranslation from '../../lib/hooks/useTranslation';
+import { CREATE_POST, GET_POSTS } from '../../lib/gql/posts';
 
-const GET_POSTS = gql`
-  query allPosts($first: Int!, $skip: Int!) {
-    allPosts(orderBy: createdAt_DESC, first: $first, skip: $skip) {
-      id
-      title
-      votes
-      url
-      createdAt
-    }
-  }
-`;
-
-export default function Submit() {
-  const [title, setTitle] = useState("");
-  const [url, setUrl] = useState("");
+const Submit = () => {
+  const [title, setTitle] = useState('');
+  const [url, setUrl] = useState('');
+  const { t } = useTranslation();
 
   const [createPost, { error, data }] = useMutation(CREATE_POST, {
     variables: { title, url },
@@ -49,34 +27,32 @@ export default function Submit() {
     }
   });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (title === "" || url === "") {
-      window.alert("Both fields are required.");
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (title === '' || url === '') {
+      window.alert(t('postvote.requiredFields'));
       return false;
     }
 
     createPost();
-
-    // reset form
-    e.target.elements.title.value = "";
-    e.target.elements.url.value = "";
-  }
+    event.target.elements.title.value = '';
+    event.target.elements.url.value = '';
+  };
 
   // prepend http if missing from url
   const pattern = /^((http|https):\/\/)/;
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <H1>Submit</H1>
-      <Input
-        placeholder="title"
-        name="title"
+    <form onSubmit={handleSubmit}>
+      <h1>{t('postvote.title')}</h1>
+      <input
+        placeholder={t('postvote.formTitle')}
+        name='title'
         onChange={e => setTitle(e.target.value)}
       />
-      <Input
-        placeholder="url"
-        name="url"
+      <input
+        placeholder={t('postvote.formUrl')}
+        name='url'
         onChange={e =>
           setUrl(
             !pattern.test(e.target.value)
@@ -85,7 +61,9 @@ export default function Submit() {
           )
         }
       />
-      <button type="submit">Submit</button>
-    </Form>
+      <button type='submit'>{t('postvote.button')}</button>
+    </form>
   );
-}
+};
+
+export default Submit;

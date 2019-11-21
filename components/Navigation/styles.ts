@@ -5,10 +5,6 @@ interface ILinkText {
   isActive?: Boolean;
 }
 
-const Container = styled.header`
-  margin: 0 0 ${space()};
-`;
-
 const LinkText = styled.a<ILinkText>`
   cursor: pointer;
   font-size: ${ms(-1)};
@@ -20,4 +16,4 @@ const LinkText = styled.a<ILinkText>`
   `}
 `;
 
-export { Container, LinkText };
+export { LinkText };

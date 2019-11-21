@@ -1,28 +1,16 @@
-import React from 'react';
-import { NextPage } from 'next';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
+import { getInitialLocale } from '../translations/getInitialLocale';
 
-import Base from '../layouts/Base';
-import Wrapper from '../ui/Wrapper';
-import Submit from '../components/Submit';
-import PostList from '../components/PostList';
-import withData from '../lib/apollo';
-
-const Index: NextPage<{ userAgent: string }> = ({ userAgent }) => (
-  <Base>
+const Index = () => {
+  useEffect(() => {
+    window.location.replace(`/${getInitialLocale()}`);
+  });
+  return (
     <Head>
-      <title>Index page</title>
+      <meta name='robots' content='noindex, nofollow' />
     </Head>
-    <Wrapper>
-      <Submit />
-      <PostList />
-    </Wrapper>
-  </Base>
-);
-
-Index.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers['user-agent'] || '' : navigator.userAgent;
-  return { userAgent };
+  );
 };
 
-export default withData(Index);
+export default Index;

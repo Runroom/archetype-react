@@ -4,7 +4,7 @@ import { act, render, waitForElement } from '@testing-library/react';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ThemeProvider } from 'styled-components';
 
-import Index from '../pages/index';
+import Index from '../pages/[lang]/index';
 import theme from '../config/theme';
 
 const routerValue = {

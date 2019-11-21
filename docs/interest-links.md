@@ -10,3 +10,4 @@ Apollo Client (>= 2.5) provee de un manager de states local integrado en la herr
 ## Nextjs
 - [Custom App file](https://nextjs.org/docs#custom-app)
 - [Custom Document file](https://nextjs.org/docs#custom-document)
+- [Dynamic Routing](https://nextjs.org/docs#dynamic-routing) especial para multi idioma
