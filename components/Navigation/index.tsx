@@ -1,9 +1,10 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-import useTranslation from '../../lib/hooks/useTranslation';
-import LocaleSwitcher from '../LocaleSwitcher';
-import { LinkText } from './styles';
+import LocaleSwitcher from "../LocaleSwitcher";
+import useTranslation from "../../lib/hooks/useTranslation";
+import Anchor from "../../ui/Anchor";
+import routes from "../../config/routes.json";
 
 const Navigation = () => {
   const { locale, t } = useTranslation();
@@ -11,22 +12,23 @@ const Navigation = () => {
   const { pathname } = router;
   return (
     <>
-      <Link href='/[lang]' as={`/${locale}`}>
-        <LinkText isActive={!!(pathname === '/' && 'is-active')}>
-          {t('home.menu')}
-        </LinkText>
+      <Link href={routes.home} as={`/${locale}`}>
+        <Anchor isActive={!!(pathname === routes.home)}>
+          {t("home.menu")}
+        </Anchor>
       </Link>
-      <Link href='/[lang]/about' as={`/${locale}/about`}>
-        <LinkText isActive={!!(pathname === '/about' && 'is-active')}>
-          {t('about.menu')}
-        </LinkText>
+      <Link href={routes.about} as={`/${locale}/about`}>
+        <Anchor isActive={!!(pathname === routes.about)}>
+          {t("about.menu")}
+        </Anchor>
       </Link>
-      <LinkText
-        href='https://github.com/ads1018/next-apollo-example'
-        target='__blank'
-        rel='noopener noreferrer'>
+      <Anchor
+        href="https://github.com/ads1018/next-apollo-example"
+        target="__blank"
+        rel="noopener noreferrer"
+      >
         Github
-      </LinkText>
+      </Anchor>
       <LocaleSwitcher />
     </>
   );

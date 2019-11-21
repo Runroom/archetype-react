@@ -1,0 +1,19 @@
+{
+  "font": {
+    "url": "https://fonts.googleapis.com/css?family=Lato:400,700|Playfair+Display&display=swap",
+    "primary": "Lato, Helvetica, Arial, sans-serif",
+    "secondary": "\"Playfair Display\", Garamond, Times, serif",
+    "min": 16,
+    "max": 18,
+    "ratio": 1.2,
+    "lineHeight": 1.25
+  },
+  "breakpoint": {
+    "desktop": 992,
+    "desktopLarge": 1024,
+    "maxWidth": 1200,
+    "phone": 480,
+    "reader": 550,
+    "tablet": 768
+  }
+}

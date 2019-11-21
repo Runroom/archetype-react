@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
-import theme from '../config/theme.json';
+import { createGlobalStyle, ThemeConsumer } from "styled-components";
+import settings from "../config/settings.json";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ theme: any }>`
   *,
   *::before,
   *::after {
@@ -26,7 +26,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: ${theme.font.primary};
+    background: ${props => props.theme.background};
+    color: ${props => props.theme.text500};
+    font-family: ${settings.font.primary};
     line-height: 1.5;
     min-height: 100vh;
     scroll-behavior: smooth;
@@ -41,11 +43,6 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration-skip-ink: auto;
-  }
-
-  a:not([class]) {
-    color: ${theme.color.primary500};
-    text-decoration: underline;
   }
 
   img {

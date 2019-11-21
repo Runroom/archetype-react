@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import theme from '../config/theme.json';
+import { css } from "styled-components";
+import settings from "../config/settings.json";
 
 const hover = (...args: any[]) => css`
   &:hover {
@@ -10,7 +10,7 @@ const hover = (...args: any[]) => css`
 `;
 
 const hexToRgb = (hex: string): { r: number; g: number; b: number } => {
-  if (hex[0] === '#') {
+  if (hex[0] === "#") {
     hex = hex.substr(1);
   }
   if (hex.length === 3) {
@@ -32,7 +32,7 @@ const rgbToHex = (r: number, g: number, b: number): string => {
   return [r, g, b]
     .map(decCh => Math.max(0, Math.min(255, decCh)).toString(16))
     .map(hexCh => (hexCh.length === 1 ? `0${hexCh}` : hexCh))
-    .join('');
+    .join("");
 };
 
 const bgGradient = (rotation: string, color1: string, color2: string) =>
@@ -48,11 +48,11 @@ const getRatio = (
   let finalWidth;
 
   if (width > 0) {
-    finalHeight = Math.ceil((width / originalWidth) * originalHeight) + 'px';
+    finalHeight = Math.ceil((width / originalWidth) * originalHeight) + "px";
     finalWidth = `${width}px`;
   } else {
     finalHeight = `${height}px`;
-    finalWidth = Math.ceil((height / originalHeight) * originalWidth) + 'px';
+    finalWidth = Math.ceil((height / originalHeight) * originalWidth) + "px";
   }
   return `
     height: ${finalHeight};
@@ -67,7 +67,7 @@ const getRatio = (
  *
  * @param {integer} n — Exponencial value
  */
-const ms = (n: number) => `${Math.pow(theme.font.ratio, n) || 1}rem`;
+const ms = (n: number) => `${Math.pow(settings.font.ratio, n) || 1}rem`;
 
 /**
  * Rems
@@ -76,8 +76,8 @@ const ms = (n: number) => `${Math.pow(theme.font.ratio, n) || 1}rem`;
  *
  * @param {integer|string} n — Number to transform
  */
-const rems = (n: any) => `${parseInt(n, 10) / theme.font.min}rem`;
-const maxrems = (n: any) => `${parseInt(n, 10) / theme.font.max}rem`;
+const rems = (n: any) => `${parseInt(n, 10) / settings.font.min}rem`;
+const maxrems = (n: any) => `${parseInt(n, 10) / settings.font.max}rem`;
 
 const pixelate = (n: any) => `${n}px`;
 
@@ -88,20 +88,20 @@ const pixelate = (n: any) => `${n}px`;
  *
  * @param {float} n — Multiplier, can accept decimal numbers
  */
-const space = (n: number = 1) => `${theme.font.lineHeight * n}rem`;
+const space = (n: number = 1) => `${settings.font.lineHeight * n}rem`;
 
 const getSizeFromBreakpoint = (value: any, max: boolean = false) => {
   let mq;
-  if (theme.breakpoint[value]) {
-    mq = max ? theme.breakpoint[value] - 1 : theme.breakpoint[value];
+  if (settings.breakpoint[value]) {
+    mq = max ? settings.breakpoint[value] - 1 : settings.breakpoint[value];
     // tslint:disable-next-line:radix
   } else if (parseInt(value)) {
     mq = max ? value - 1 : value;
   } else {
     // tslint:disable-next-line:no-console
-    console.error('No valid breakpoint or size specified for media.');
+    console.error("No valid breakpoint or size specified for media.");
   }
-  return mq ? pixelate(mq) : '0';
+  return mq ? pixelate(mq) : "0";
 };
 
 const generateMedia = () => {
