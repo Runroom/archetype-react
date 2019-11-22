@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { ms, space } from '../../ui/helpers';
+import styled from "styled-components";
+import { ms, space } from "../../ui/helpers";
 
 const Footer = styled.footer`
-  background: ${({ theme }) => theme.color.neutro900};
-  color: ${({ theme }) => theme.color.neutro100};
+  background: ${({ theme }) => theme.colors.footer};
+  color: ${({ theme }) => theme.colors.text};
   font-size: ${ms(-1)};
   padding: ${space()} 0;
 `;

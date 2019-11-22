@@ -6,7 +6,7 @@ import TagManager from "react-gtm-module";
 
 import GlobalStyles from "../ui/Globals";
 import { gtmCode } from "../config/site.json";
-import theme from "../config/theme.json";
+import { light, dark, colors } from "../config/theme";
 import settings from "../config/settings.json";
 
 class MyApp extends App {
@@ -20,7 +20,7 @@ class MyApp extends App {
       <>
         <Head>
           <link href={settings.font.url} rel="stylesheet"></link>
-          <GlobalStyles theme={theme.dark.color} />
+          <GlobalStyles theme={{ colors: dark }} />
         </Head>
         <noscript>
           <iframe
@@ -31,7 +31,7 @@ class MyApp extends App {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <ThemeProvider theme={{ ...theme.dark, ...settings }}>
+        <ThemeProvider theme={{ colors: dark, palette: colors, ...settings }}>
           <Component {...pageProps} />
         </ThemeProvider>
       </>

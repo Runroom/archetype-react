@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Anchor = styled.a<{ isActive?: boolean }>`
   color: ${({ theme, isActive }) =>
-    isActive ? theme.color.secondary500 : theme.color.link500};
+    isActive ? theme.colors.linkActive : theme.colors.link};
   text-decoration: none;
 `;
 

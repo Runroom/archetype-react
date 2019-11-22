@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { space } from '../helpers';
+import styled from "styled-components";
+import { space } from "../helpers";
 
 const SkipLink = styled.a`
-  background: ${({ theme }) => theme.color.neutro900};
+  background: ${({ theme }) => theme.colors.text};
   border: 0;
-  color: ${({ theme }) => theme.color.neutro100};
+  color: ${({ theme }) => theme.colors.background};
   font-size: 1.25rem;
   left: -120%;
   margin: ${space(1)} 0;

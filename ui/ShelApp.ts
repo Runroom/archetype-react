@@ -1,5 +1,5 @@
-import { css, keyframes } from 'styled-components';
-import { space } from './helpers';
+import { css, keyframes } from "styled-components";
+import { space } from "./helpers";
 
 const shine = keyframes`
 0% { background-position: 440% 50%; }
@@ -29,14 +29,14 @@ const ShellApp = css`
     .title,
     .note,
     .paragraph {
-      background: ${({ theme }) => theme.color.neutro400};
+      background: ${({ theme }) => theme.palette.neutro400};
       background: linear-gradient(
         90deg,
-        ${({ theme }) => theme.color.neutro400} 0%,
-        ${({ theme }) => theme.color.neutro300} 10%,
-        ${({ theme }) => theme.color.neutro300} 20%,
-        ${({ theme }) => theme.color.neutro400} 30%,
-        ${({ theme }) => theme.color.neutro400} 100%
+        ${({ theme }) => theme.palette.neutro400} 0%,
+        ${({ theme }) => theme.palette.neutro300} 10%,
+        ${({ theme }) => theme.palette.neutro300} 20%,
+        ${({ theme }) => theme.palette.neutro400} 30%,
+        ${({ theme }) => theme.palette.neutro400} 100%
       );
       background-size: 400% 400%;
       animation: ${shine} 6s linear infinite;
@@ -68,7 +68,7 @@ const ShellApp = css`
 
       &::before {
         border-radius: 50%;
-        content: '';
+        content: "";
         display: block;
         height: ${space(1.5)};
         opacity: 0.4;
@@ -82,7 +82,7 @@ const ShellApp = css`
 
       &::before {
         border-radius: 5px;
-        content: '';
+        content: "";
         display: block;
         height: ${space(2.25)};
         opacity: 0.4;

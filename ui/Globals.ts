@@ -26,8 +26,8 @@ const GlobalStyle = createGlobalStyle<{ theme: any }>`
   }
 
   body {
-    background: ${props => props.theme.background};
-    color: ${props => props.theme.text500};
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
     font-family: ${settings.font.primary};
     line-height: 1.5;
     min-height: 100vh;
