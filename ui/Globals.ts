@@ -1,7 +1,15 @@
-import { createGlobalStyle, ThemeConsumer } from "styled-components";
-import settings from "../config/settings.json";
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle<{ theme: any }>`
+interface ITheme {
+  theme: {
+    colors: any;
+    palette: any;
+    settings: any;
+    toggleTheme: () => void;
+  };
+}
+
+const GlobalStyle = createGlobalStyle<ITheme>`
   *,
   *::before,
   *::after {
@@ -26,9 +34,9 @@ const GlobalStyle = createGlobalStyle<{ theme: any }>`
   }
 
   body {
-    background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text};
-    font-family: ${settings.font.primary};
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
+    font-family: ${({ theme }) => theme.settings.font.primary};
     line-height: 1.5;
     min-height: 100vh;
     scroll-behavior: smooth;
@@ -43,6 +51,11 @@ const GlobalStyle = createGlobalStyle<{ theme: any }>`
 
   a {
     text-decoration-skip-ink: auto;
+
+    &:not([class]) {
+      color: ${({ theme }) => theme.colors.link};
+      text-decoration: none;
+    }
   }
 
   img {

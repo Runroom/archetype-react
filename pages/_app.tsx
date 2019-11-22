@@ -10,31 +10,50 @@ import { light, dark, colors } from "../config/theme";
 import settings from "../config/settings.json";
 
 class MyApp extends App {
+  state = {
+    theme: "dark"
+  };
+
   componentDidMount() {
+    const theme = window.localStorage.getItem("theme") || "dark";
+    this.setState({ theme });
     TagManager.initialize({ id: gtmCode });
+  }
+
+  toggleTheme() {
+    const theme = this.state.theme === "dark" ? "light" : "dark";
+    window.localStorage.setItem("theme", theme);
+    this.setState({ theme });
   }
 
   render() {
     const { Component, pageProps } = this.props;
+    const CONTEXT_PROPS = {
+      colors: this.state.theme === "light" ? light : dark,
+      palette: colors,
+      toggleTheme: this.toggleTheme,
+      settings
+    };
+
     return (
-      <>
-        <Head>
-          <link href={settings.font.url} rel="stylesheet"></link>
-          <GlobalStyles theme={{ colors: dark }} />
-        </Head>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmCode}`}
-            height="0"
-            width="0"
-            title="GTM Tracking"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-        <ThemeProvider theme={{ colors: dark, palette: colors, ...settings }}>
+      <ThemeProvider theme={CONTEXT_PROPS}>
+        <>
+          <Head>
+            <link href={settings.font.url} rel="stylesheet"></link>
+            <GlobalStyles theme={CONTEXT_PROPS} />
+          </Head>
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmCode}`}
+              height="0"
+              width="0"
+              title="GTM Tracking"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
           <Component {...pageProps} />
-        </ThemeProvider>
-      </>
+        </>
+      </ThemeProvider>
     );
   }
 }

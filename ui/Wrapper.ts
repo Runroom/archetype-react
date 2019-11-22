@@ -1,10 +1,12 @@
-import styled from 'styled-components';
-import { rems, space } from './helpers';
+import styled from "styled-components";
+import { rems, space } from "./helpers";
 
-const Wrapper = styled('div')<{ reader?: boolean }>`
+const Wrapper = styled("div")<{ reader?: boolean }>`
   margin: 0 auto;
   max-width: ${({ theme, reader }) =>
-    reader ? rems(theme.breakpoint.reader) : rems(theme.breakpoint.maxWidth)};
+    reader
+      ? rems(theme.settings.breakpoint.reader)
+      : rems(theme.settings.breakpoint.maxWidth)};
   padding-left: ${space(0.75)};
   padding-right: ${space(0.75)};
 
