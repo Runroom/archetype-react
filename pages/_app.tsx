@@ -1,6 +1,5 @@
 import React from "react";
 import App from "next/app";
-import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import TagManager from "react-gtm-module";
 
@@ -9,10 +8,18 @@ import { gtmCode } from "../config/site.json";
 import { light, dark, colors } from "../config/theme";
 import settings from "../config/settings.json";
 
-class MyApp extends App {
-  state = {
-    theme: "dark"
-  };
+interface IState {
+  theme: string;
+}
+
+class MyApp extends App<IState> {
+  state: IState;
+
+  constructor(props) {
+    super(props);
+    this.state = { theme: "dark" };
+    this.toggleTheme = this.toggleTheme.bind(this);
+  }
 
   componentDidMount() {
     const theme = window.localStorage.getItem("theme") || "dark";
@@ -28,20 +35,18 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-    const CONTEXT_PROPS = {
-      colors: this.state.theme === "light" ? light : dark,
-      palette: colors,
-      toggleTheme: this.toggleTheme,
-      settings
-    };
 
     return (
-      <ThemeProvider theme={CONTEXT_PROPS}>
+      <ThemeProvider
+        theme={{
+          colors: this.state.theme === "light" ? light : dark,
+          palette: colors,
+          toggleTheme: this.toggleTheme,
+          settings
+        }}
+      >
         <>
-          <Head>
-            <link href={settings.font.url} rel="stylesheet"></link>
-            <GlobalStyles theme={CONTEXT_PROPS} />
-          </Head>
+          <GlobalStyles />
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${gtmCode}`}
