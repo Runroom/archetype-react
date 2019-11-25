@@ -4,8 +4,8 @@ import { act, render } from '@testing-library/react';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ThemeProvider } from 'styled-components';
 
-import About from '../pages/[lang]/about';
-import theme from '../config/theme.json';
+import About from '../pages/about';
+import { dark } from '../config/theme';
 
 it('says "we integrate Apollo seamlessly with Next"', async () => {
   const router = {
@@ -19,7 +19,7 @@ it('says "we integrate Apollo seamlessly with Next"', async () => {
   await act(async () => {
     container = render(
       <RouterContext.Provider value={router}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={dark}>
           <About />
         </ThemeProvider>
       </RouterContext.Provider>

@@ -4,8 +4,8 @@ import { act, render, waitForElement } from '@testing-library/react';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ThemeProvider } from 'styled-components';
 
-import Index from '../pages/[lang]/index';
-import theme from '../config/theme.json';
+import Index from '../pages/index';
+import { light } from '../config/theme';
 
 const routerValue = {
   pathname: '/',
@@ -19,8 +19,8 @@ it('renders attribution footnote', async () => {
   await act(async () => {
     container = render(
       <RouterContext.Provider value={routerValue}>
-        <ThemeProvider theme={theme}>
-          <Index theme={theme} />
+        <ThemeProvider theme={light}>
+          <Index />
         </ThemeProvider>
       </RouterContext.Provider>
     ).container;

@@ -7,6 +7,7 @@
   "siteTitleAlt": "React Archetype to start React apps",
   "siteLogo": "/assets/img/logo-1024.png",
   "siteUrl": "https://runroom.com",
+  "contactEmail": "info@runroom.com",
   "siteDescription": "Some information about your app.",
   "siteCompanyName": "Runroom"
 }

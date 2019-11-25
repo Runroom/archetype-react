@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About"
+  },
+  "postvote": {
+    "title": "Add your post for vote",
+    "formTitle": "Title",
+    "formUrl": "https://example.com",
+    "button": "Send",
+    "requiredFields": "All fields are mandatory"
+  },
+  "loading": "Loading...",
+  "madeBy": "Made by",
+  "showMore": "Show more"
+}

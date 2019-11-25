@@ -1,32 +1,15 @@
-import React, { useCallback, useContext } from 'react';
-import { useRouter } from 'next/router';
-import { LOCALES, LOCALE_NAMES } from '../../translations/config';
-import { LocaleContext } from '../../lib/context/LocaleContext';
+import React from 'react';
 
-const LocaleSwitcher: React.FC = () => {
-  const router = useRouter();
-  const { locale } = useContext(LocaleContext);
+import { i18n } from '../../i18n';
 
-  const handleLocaleChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const regex = new RegExp(`^/(${LOCALES.join('|')})`);
-      router.push(
-        router.pathname,
-        router.asPath.replace(regex, `/${e.target.value}`)
-      );
-    },
-    [router]
-  );
-
+const LocaleToggler = () => {
   return (
-    <select value={locale} onChange={handleLocaleChange}>
-      {LOCALES.map(item => (
-        <option key={item} value={item}>
-          {LOCALE_NAMES[item]}
-        </option>
-      ))}
-    </select>
+    <div>
+      <button onClick={() => i18n.changeLanguage('es')}>es</button>
+      <button onClick={() => i18n.changeLanguage('en')}>en</button>
+      <button onClick={() => i18n.changeLanguage('de')}>de</button>
+    </div>
   );
 };
 
-export default LocaleSwitcher;
+export default LocaleToggler;

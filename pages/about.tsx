@@ -1,14 +1,14 @@
 import React from 'react';
+import { NextPage } from 'next';
 import Head from 'next/head';
 
-import useTranslation from '../../lib/hooks/useTranslation';
-import withLocale from '../../lib/hocs/withLocale';
-import Wrapper from '../../ui/Wrapper';
-import Header from '../../components/Header';
-import SEO from '../../components/SEO';
+import { I18nPage, includeDefaultNamespaces, useTranslation } from '../i18n';
+import Wrapper from '../ui/Wrapper';
+import Header from '../components/Header';
+import SEO from '../components/SEO';
 
-const About = () => {
-  const { t } = useTranslation();
+const About: I18nPage = () => {
+  const { t, i18n } = useTranslation();
   return (
     <Wrapper reader={true}>
       <Head>
@@ -55,4 +55,10 @@ const About = () => {
   );
 };
 
-export default withLocale(About);
+About.getInitialProps = () => {
+  return {
+    namespacesRequired: includeDefaultNamespaces(['about'])
+  };
+};
+
+export default About;

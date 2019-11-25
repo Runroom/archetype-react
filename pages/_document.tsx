@@ -3,10 +3,10 @@ import Document, {
   Main,
   NextScript,
   DocumentContext
-} from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
-import settings from '../config/settings.json';
+import settings from "../config/settings.json";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -37,9 +37,9 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <html lang='es'>
+      <html lang={this.props.__NEXT_DATA__.props.initialLanguage}>
         <Head>
-          <link href={settings.font.url} rel='stylesheet'></link>
+          <link href={settings.font.url} rel="stylesheet"></link>
         </Head>
         <body>
           <Main />

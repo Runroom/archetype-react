@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 
-import useTranslation from '../../lib/hooks/useTranslation';
+import { useTranslation } from '../../i18n';
 import { CREATE_POST, GET_POSTS } from '../../lib/gql/posts';
 
 const Submit = () => {

@@ -1,10 +1,10 @@
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from '@apollo/react-hooks';
 
-import useTranslation from "../../lib/hooks/useTranslation";
-import { GET_POSTS } from "../../lib/gql/posts";
-import Anchor from "../../ui/Anchor";
-import Button from "../../ui/Button";
-import PostUpvoter from "../PostUpvoter";
+import { useTranslation } from '../../i18n';
+import { GET_POSTS } from '../../lib/gql/posts';
+import Anchor from '../../ui/Anchor';
+import Button from '../../ui/Button';
+import PostUpvoter from '../PostUpvoter';
 
 const POSTS_PER_PAGE = 10;
 
@@ -35,10 +35,10 @@ const PostList = () => {
 
   return areMorePosts ? (
     <>
-      <ol data-testid="postListList">
+      <ol data-testid='postListList'>
         {data.allPosts.map(post => (
-          <li key={post.id} data-testid="postListListItem">
-            <Anchor href={post.url} target="_blank" rel="noreferrer noopener">
+          <li key={post.id} data-testid='postListListItem'>
+            <Anchor href={post.url} target='_blank' rel='noreferrer noopener'>
               {post.title}
             </Anchor>
             <PostUpvoter id={post.id} votes={post.votes} />
@@ -47,14 +47,14 @@ const PostList = () => {
       </ol>
       {areMorePosts ? (
         <Button onClick={() => loadMorePosts(data, fetchMore)}>
-          {loading ? t("loading") : t("showMore")}
+          {loading ? t('loading') : t('showMore')}
         </Button>
       ) : (
-        ""
+        ''
       )}
     </>
   ) : (
-    <div>{t("loading")}</div>
+    <div>{t('loading')}</div>
   );
 };
 

@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "about": "Über"
+  },
+  "postvote": {
+    "title": "Fügen Sie Ihren Beitrag zur Abstimmung hinzu",
+    "formTitle": "Titel",
+    "formUrl": "https://exempel.com",
+    "button": "Senden",
+    "requiredFields": "Alle Felder sind Pflichtfelder"
+  },
+  "loading": "Laden...",
+  "madeBy": "Hergestellt von",
+  "showMore": "Mehr anzeigen"
+}

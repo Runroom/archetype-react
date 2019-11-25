@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "postvote": {
+    "title": "Añade tu post para votar",
+    "formTitle": "Título",
+    "formUrl": "https://ejemplo.com",
+    "button": "Enviar",
+    "requiredFields": "Todos los campos son obligatorios"
+  },
+  "loading": "Cargando...",
+  "madeBy": "Hecho por",
+  "showMore": "Mostrar más"
+}
