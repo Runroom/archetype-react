@@ -1,7 +1,8 @@
 {
   "navigation": {
     "home": "Startseite",
-    "about": "Über"
+    "about": "Über",
+    "python": "Python API"
   },
   "postvote": {
     "title": "Fügen Sie Ihren Beitrag zur Abstimmung hinzu",

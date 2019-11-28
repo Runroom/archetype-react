@@ -1,4 +1,5 @@
 {
-  "home": "/[lang]",
-  "about": "/[lang]/about"
+  "home": "/",
+  "about": "/about",
+  "python": "/python-api"
 }

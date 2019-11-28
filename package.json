@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "description": "Next + Apollo archetype",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "HTTPS=true node server.js",
     "next:dev": "next dev",
     "build": "next build",
+    "prestart": "cp -f ./.certs/certificate.pem ./node_modules/webpack-dev-server/ssl || :",
     "start": "NODE_ENV=production node server.js",
     "test": "jest"
   },

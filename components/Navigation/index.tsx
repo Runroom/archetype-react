@@ -7,6 +7,7 @@ import LocaleSwitcher from '../LocaleSwitcher';
 import { useTranslation } from '../../i18n';
 import Anchor from '../../ui/Anchor';
 import routes from '../../config/routes.json';
+import { NavItem } from './styles';
 
 const Navigation = props => {
   const { toggleTheme } = useContext(ThemeContext);
@@ -17,19 +18,26 @@ const Navigation = props => {
     <>
       <a onClick={() => toggleTheme()}>Toggle</a>
       <Link href={routes.home}>
-        <Anchor isActive={!!(pathname === routes.home)}>
+        <Anchor as={NavItem} isActive={!!(pathname === routes.home)}>
           {t('navigation.home')}
         </Anchor>
       </Link>
       <Link href={routes.about}>
-        <Anchor isActive={!!(pathname === routes.about)}>
+        <Anchor as={NavItem} isActive={!!(pathname === routes.about)}>
           {t('navigation.about')}
         </Anchor>
       </Link>
+      <Link href={routes.python}>
+        <Anchor as={NavItem} isActive={!!(pathname === routes.python)}>
+          {t('navigation.python')}
+        </Anchor>
+      </Link>
       <Anchor
-        href='https://github.com/ads1018/next-apollo-example'
-        target='__blank'
-        rel='noopener noreferrer'>
+        as={NavItem}
+        href="https://github.com/ads1018/next-apollo-example"
+        target="__blank"
+        rel="noopener noreferrer"
+      >
         Github
       </Anchor>
       <LocaleSwitcher {...props} />

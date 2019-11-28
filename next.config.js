@@ -1,8 +1,9 @@
 const withOffline = require('next-offline');
 const sitemap = require('nextjs-sitemap-generator');
+const site = require('./config/site.json');
 
 sitemap({
-  baseUrl: 'https://example.com',
+  baseUrl: site.siteUrl,
   pagesDirectory: __dirname + '/pages',
   targetDirectory: 'public/'
 });
@@ -12,8 +13,8 @@ const nextConfig = {
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
   generateInDevMode: true,
   workboxOpts: {
-    importScripts: ['/public/js/firebase-messaging-sw.js'],
-    swDest: 'public/js/service-worker.js',
+    importScripts: ['./js/firebase-messaging-sw.js'],
+    swDest: 'public/service-worker.js',
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
