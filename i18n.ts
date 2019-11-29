@@ -1,6 +1,6 @@
 import NextI18next from 'next-i18next';
 import { NextComponentType, NextPageContext } from 'next';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, initReactI18next } from 'react-i18next';
 
 const NextI18NextInstance = new NextI18next({
   browserLanguageDetection: false,
@@ -11,7 +11,8 @@ const NextI18NextInstance = new NextI18next({
   keySeparator: '.',
   localePath:
     typeof window === 'undefined' ? 'public/translations' : 'translations',
-  otherLanguages: ['en', 'de']
+  otherLanguages: ['en', 'de'],
+  use: [initReactI18next]
 });
 
 const includeDefaultNamespaces = (namespaces: string[]) =>
