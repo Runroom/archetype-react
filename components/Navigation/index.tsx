@@ -6,8 +6,9 @@ import { ThemeContext } from 'styled-components';
 import LocaleSwitcher from '../LocaleSwitcher';
 import { useTranslation } from '../../i18n';
 import Anchor from '../../ui/Anchor';
+import ThemeSwitcher from '../../svg/theme-switcher.svg';
 import routes from '../../config/routes.json';
-import { NavItem } from './styles';
+import NavigationStyled, { Icon, NavItem } from './styles';
 
 const Navigation = props => {
   const { toggleTheme } = useContext(ThemeContext);
@@ -15,8 +16,8 @@ const Navigation = props => {
   const router = useRouter();
   const { pathname } = router;
   return (
-    <>
-      <a onClick={() => toggleTheme()}>Toggle</a>
+    <NavigationStyled>
+      <Icon onClick={() => toggleTheme()} as={ThemeSwitcher} />
       <Link href={routes.home}>
         <Anchor as={NavItem} isActive={!!(pathname === routes.home)}>
           {t('navigation.home')}
@@ -41,7 +42,7 @@ const Navigation = props => {
         Github
       </Anchor>
       <LocaleSwitcher {...props} />
-    </>
+    </NavigationStyled>
   );
 };
 

@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+import { Button } from './Resets';
 
 interface ITheme {
   theme: {
@@ -73,6 +74,8 @@ const GlobalStyle = createGlobalStyle<ITheme>`
   select {
     font: inherit;
   }
+
+  ${Button};
 
   @media (prefers-reduced-motion: reduce) {
     * {

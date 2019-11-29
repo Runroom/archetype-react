@@ -33,9 +33,9 @@ const nextConfig = {
       }
     ]
   },
-  webpack: cfg => {
-    const originalEntry = cfg.entry;
-    cfg.entry = async () => {
+  webpack: config => {
+    const originalEntry = config.entry;
+    config.entry = async () => {
       const entries = await originalEntry();
       if (entries['main.js'] && !entries['main.js'].includes('./lib/sw.js')) {
         entries['main.js'].unshift('./lib/sw.js');
@@ -43,7 +43,11 @@ const nextConfig = {
 
       return entries;
     };
-    return cfg;
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
+    return config;
   }
 };
 
