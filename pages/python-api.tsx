@@ -17,11 +17,11 @@ const Page: I18nPage = () => {
   return (
     <Base>
       <Head>
-        <title>{t('python.title')}</title>
+        <title>{t('python:title')}</title>
       </Head>
       <Wrapper>
-        <h1>{t('python.title')}</h1>
-        <p>{t('python.description')}</p>
+        <h1>{t('python:title')}</h1>
+        <p>{t('python:description')}</p>
         {loading ? (
           <Loading />
         ) : data ? (

@@ -4,5 +4,6 @@
   "databaseURL": "https://test-pwa-f0645.firebaseio.com",
   "projectId": "test-pwa-f0645",
   "storageBucket": "test-pwa-f0645.appspot.com",
-  "messagingSenderId": "142898157653"
+  "messagingSenderId": "142898157653",
+  "appId": "1:142898157653:web:a9d8411838f9fcca"
 }

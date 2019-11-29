@@ -5,7 +5,7 @@ import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ThemeProvider } from 'styled-components';
 
 import Index from '../pages/index';
-import { light } from '../config/theme';
+import THEME from '../__mocks__/theme';
 
 const routerValue = {
   pathname: '/',
@@ -19,7 +19,7 @@ it('renders attribution footnote', async () => {
   await act(async () => {
     container = render(
       <RouterContext.Provider value={routerValue}>
-        <ThemeProvider theme={light}>
+        <ThemeProvider theme={THEME}>
           <Index />
         </ThemeProvider>
       </RouterContext.Provider>
@@ -34,7 +34,7 @@ it('renders some posts from the query', async () => {
   await act(async () => {
     const renderResult = render(
       <RouterContext.Provider value={routerValue}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={THEME}>
           <Index />
         </ThemeProvider>
       </RouterContext.Provider>

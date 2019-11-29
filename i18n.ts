@@ -3,6 +3,7 @@ import { NextComponentType, NextPageContext } from 'next';
 import { useTranslation, initReactI18next } from 'react-i18next';
 
 const NextI18NextInstance = new NextI18next({
+  debug: true,
   browserLanguageDetection: false,
   lng: 'es',
   defaultLanguage: 'es',

@@ -14,7 +14,7 @@ const nextConfig = {
   generateInDevMode: true,
   workboxOpts: {
     importScripts: ['./js/firebase-messaging-sw.js'],
-    swDest: 'public/service-worker.js',
+    swDest: 'service-worker.js',
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
