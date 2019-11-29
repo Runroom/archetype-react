@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { I18nPage, includeDefaultNamespaces, useTranslation } from '../i18n';
 import Base from '../layouts/Base';
+import Loading from '../components/Loading';
 import PythonLinks from '../components/PythonLinks';
 import Wrapper from '../ui/Wrapper';
 import withData from '../lib/python-api';
@@ -22,7 +23,7 @@ const Page: I18nPage = () => {
         <h1>{t('python.title')}</h1>
         <p>{t('python.description')}</p>
         {loading ? (
-          <div>Loading...</div>
+          <Loading />
         ) : data ? (
           <PythonLinks data={data} />
         ) : (
