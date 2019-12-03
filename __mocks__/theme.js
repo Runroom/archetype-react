@@ -5,7 +5,7 @@ import settings from '../config/settings.json';
 const THEME = {
   colors: dark,
   palette: colors,
-  toggleTheme: null,
+  toggleTheme: jest.fn(),
   settings
 };
 

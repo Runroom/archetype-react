@@ -1,11 +1,13 @@
 import styled from 'styled-components';
+import { space } from './helpers';
 
 const Button = styled.button`
   align-items: center;
   background: transparent;
-  border: 1px solid #e4e4e4;
-  color: #000;
+  border: 1px solid currentColor;
+  color: ${({ theme }) => theme.colors.text};
   display: inline-flex;
+  padding: ${space(0.25)} ${space(0.5)};
 
   :active: {
     background: transparent;
@@ -13,7 +15,7 @@ const Button = styled.button`
 
   ::before {
     align-self: center;
-    border-color: transparent transparent #000000 transparent;
+    border-color: transparent transparent currentColor transparent;
     border-style: solid;
     border-width: 0 4px 6px 4px;
     content: '';

@@ -1,9 +1,11 @@
 /* eslint-env jest */
-import React from 'react';
-import { act, render, waitForElement } from '@testing-library/react';
+import * as React from 'react';
+import { I18nextProvider } from 'react-i18next';
+import { render, waitForElement } from '@testing-library/react';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ThemeProvider } from 'styled-components';
 
+import i18n from '../i18n-test';
 import Index from '../pages/index';
 import THEME from '../__mocks__/theme';
 
@@ -15,33 +17,31 @@ const routerValue = {
 };
 
 it('renders attribution footnote', async () => {
-  let container;
-  await act(async () => {
-    container = render(
-      <RouterContext.Provider value={routerValue}>
+  const container = render(
+    <RouterContext.Provider value={routerValue}>
+      <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={THEME}>
           <Index />
         </ThemeProvider>
-      </RouterContext.Provider>
-    ).container;
-  });
+      </I18nextProvider>
+    </RouterContext.Provider>
+  ).container;
 
   expect(container.textContent).toMatch(/Made by @Runroom/);
 });
 
 it('renders some posts from the query', async () => {
-  let findAllByTestId;
-  await act(async () => {
-    const renderResult = render(
-      <RouterContext.Provider value={routerValue}>
+  const renderResult = render(
+    <RouterContext.Provider value={routerValue}>
+      <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={THEME}>
           <Index />
         </ThemeProvider>
-      </RouterContext.Provider>
-    );
+      </I18nextProvider>
+    </RouterContext.Provider>
+  );
 
-    findAllByTestId = renderResult.findAllByTestId;
-  });
+  const findAllByTestId = renderResult.findAllByTestId;
 
   const listEntries = await waitForElement(() =>
     findAllByTestId('postListListItem')

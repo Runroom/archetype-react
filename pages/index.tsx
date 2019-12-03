@@ -14,7 +14,7 @@ const Home: I18nPage = () => {
   return (
     <Base>
       <Head>
-        <title>{t('home.title')}</title>
+        <title>{t('home:title')}</title>
       </Head>
       <Wrapper>
         <Submit />

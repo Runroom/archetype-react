@@ -11,11 +11,11 @@ const About: I18nPage = () => {
   return (
     <Wrapper reader={true}>
       <Head>
-        <SEO title={t('about.title')} />
+        <SEO title={t('about:title')} />
       </Head>
       <Header />
       <article>
-        <h1>{t('about.title')}</h1>
+        <h1>{t('about:title')}</h1>
         <blockquote>Not translated 👇🏾</blockquote>
         <p>
           <a href="http://dev.apollodata.com">Apollo</a> is a GraphQL client

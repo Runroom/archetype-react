@@ -5,6 +5,7 @@ import { GET_POSTS } from '../../lib/gql/posts';
 import Anchor from '../../ui/Anchor';
 import Button from '../../ui/Button';
 import PostUpvoter from '../PostUpvoter';
+import Loading from '../Loading';
 
 const POSTS_PER_PAGE = 10;
 
@@ -35,10 +36,10 @@ const PostList = () => {
 
   return areMorePosts ? (
     <>
-      <ol data-testid='postListList'>
+      <ol data-testid="postListList">
         {data.allPosts.map(post => (
-          <li key={post.id} data-testid='postListListItem'>
-            <Anchor href={post.url} target='_blank' rel='noreferrer noopener'>
+          <li key={post.id} data-testid="postListListItem">
+            <Anchor href={post.url} target="_blank" rel="noreferrer noopener">
               {post.title}
             </Anchor>
             <PostUpvoter id={post.id} votes={post.votes} />
@@ -54,7 +55,7 @@ const PostList = () => {
       )}
     </>
   ) : (
-    <div>{t('loading')}</div>
+    <Loading />
   );
 };
 

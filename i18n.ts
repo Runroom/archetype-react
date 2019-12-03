@@ -1,9 +1,9 @@
-import NextI18next from 'next-i18next';
+import NextI18Next from 'next-i18next';
 import { NextComponentType, NextPageContext } from 'next';
 import { useTranslation, initReactI18next } from 'react-i18next';
 
-const NextI18NextInstance = new NextI18next({
-  debug: true,
+const NextI18NextInstance = new NextI18Next({
+  debug: false,
   browserLanguageDetection: false,
   lng: 'es',
   defaultLanguage: 'es',

@@ -21,3 +21,6 @@ Apollo Client (>= 2.5) provee de un manager de states local integrado en la herr
 
 ## SVG
 - [SVG icons](https://www.npmjs.com/package/@svgr/webpack)
+
+## Jest
+- [Jest Babel](https://babeljs.io/docs/en/config-files#project-wide-configuration)
