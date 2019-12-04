@@ -1,8 +1,14 @@
 import styled from 'styled-components';
+import OriginalIcon from '../../ui/Icon';
 import { space } from '../../ui/helpers';
 
-const Header = styled.header`
-  padding: ${space()} 0;
+const Icon = styled(OriginalIcon)`
+  cursor: pointer;
+  fill: ${({ theme }) => theme.colors.link};
+  height: ${space()};
+  /* margin: 0 ${space(0.25)} 0 0;
+  padding: 0 ${space(0.5)} 0 0; */
+  width: ${space()};
 `;
 
-export default Header;
+export { Icon };

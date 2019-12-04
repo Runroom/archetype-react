@@ -3,7 +3,6 @@ import Head from 'next/head';
 
 import { I18nPage, includeDefaultNamespaces, useTranslation } from '../i18n';
 import Base from '../layouts/Base';
-import Wrapper from '../ui/Wrapper';
 import Submit from '../components/Submit';
 import PostList from '../components/PostList';
 import withData from '../lib/apollo';
@@ -16,10 +15,8 @@ const Home: I18nPage = () => {
       <Head>
         <title>{t('home:title')}</title>
       </Head>
-      <Wrapper>
-        <Submit />
-        <PostList />
-      </Wrapper>
+      <Submit />
+      <PostList />
     </Base>
   );
 };
