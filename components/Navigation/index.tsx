@@ -1,48 +1,52 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ThemeContext } from 'styled-components';
 
-import LocaleSwitcher from '../LocaleSwitcher';
 import { useTranslation } from '../../i18n';
 import Anchor from '../../ui/Anchor';
-import ThemeSwitcher from '../../svg/theme-switcher.svg';
 import routes from '../../config/routes.json';
-import NavigationStyled, { Icon, NavItem } from './styles';
+import { NavItem } from './styles';
 
-const Navigation = props => {
-  const { toggleTheme } = useContext(ThemeContext);
+const Navigation = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const { pathname } = router;
   return (
-    <NavigationStyled>
-      <Icon onClick={() => toggleTheme()} as={ThemeSwitcher} />
-      <Link href={routes.home}>
-        <Anchor as={NavItem} isActive={!!(pathname === routes.home)}>
-          {t('navigation.home')}
-        </Anchor>
-      </Link>
-      <Link href={routes.about}>
-        <Anchor as={NavItem} isActive={!!(pathname === routes.about)}>
-          {t('navigation.about')}
-        </Anchor>
-      </Link>
-      <Link href={routes.python}>
-        <Anchor as={NavItem} isActive={!!(pathname === routes.python)}>
-          {t('navigation.python')}
-        </Anchor>
-      </Link>
-      <Anchor
-        as={NavItem}
-        href="https://github.com/ads1018/next-apollo-example"
-        target="__blank"
-        rel="noopener noreferrer"
-      >
-        Github
-      </Anchor>
-      <LocaleSwitcher {...props} />
-    </NavigationStyled>
+    <nav>
+      <ul>
+        <li>
+          <Link href={routes.home}>
+            <Anchor as={NavItem} isActive={!!(pathname === routes.home)}>
+              {t('navigation.home')}
+            </Anchor>
+          </Link>
+        </li>
+        <li>
+          <Link href={routes.about}>
+            <Anchor as={NavItem} isActive={!!(pathname === routes.about)}>
+              {t('navigation.about')}
+            </Anchor>
+          </Link>
+        </li>
+        <li>
+          <Link href={routes.python}>
+            <Anchor as={NavItem} isActive={!!(pathname === routes.python)}>
+              {t('navigation.python')}
+            </Anchor>
+          </Link>
+        </li>
+        <li>
+          <Anchor
+            as={NavItem}
+            href="https://github.com/italodr/archetype-react"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </Anchor>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

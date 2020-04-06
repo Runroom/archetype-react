@@ -6,6 +6,7 @@ import Anchor from '../../ui/Anchor';
 import Button from '../../ui/Button';
 import PostUpvoter from '../PostUpvoter';
 import Loading from '../Loading';
+import { ListItem } from './styles';
 
 const POSTS_PER_PAGE = 10;
 
@@ -38,12 +39,12 @@ const PostList = () => {
     <>
       <ol data-testid="postListList">
         {data.allPosts.map(post => (
-          <li key={post.id} data-testid="postListListItem">
+          <ListItem key={post.id} data-testid="postListListItem">
             <Anchor href={post.url} target="_blank" rel="noreferrer noopener">
               {post.title}
             </Anchor>
             <PostUpvoter id={post.id} votes={post.votes} />
-          </li>
+          </ListItem>
         ))}
       </ol>
       {areMorePosts ? (

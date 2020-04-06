@@ -1,14 +1,17 @@
-import Wrapper from '../../ui/Wrapper';
-import Navigation from '../Navigation';
-import HeaderStyled from './styles';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 
-const Header = () => {
+import ThemeSwitcher from '../../svg/theme-switcher.svg';
+import LocaleSwitcher from '../LocaleSwitcher';
+import { Icon } from './styles';
+
+const Header = props => {
+  const { toggleTheme } = useContext(ThemeContext);
   return (
-    <HeaderStyled>
-      <Wrapper>
-        <Navigation />
-      </Wrapper>
-    </HeaderStyled>
+    <>
+      <Icon onClick={() => toggleTheme()} as={ThemeSwitcher} />
+      <LocaleSwitcher {...props} />
+    </>
   );
 };
 

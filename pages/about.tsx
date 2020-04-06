@@ -2,19 +2,18 @@ import React from 'react';
 import Head from 'next/head';
 
 import { I18nPage, includeDefaultNamespaces, useTranslation } from '../i18n';
-import Wrapper from '../ui/Wrapper';
-import Header from '../components/Header';
+import { Reader } from '../ui/Wrapper';
+import Base from '../layouts/Base';
 import SEO from '../components/SEO';
 
 const About: I18nPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
-    <Wrapper reader={true}>
+    <Base>
       <Head>
         <SEO title={t('about:title')} />
       </Head>
-      <Header />
-      <article>
+      <Reader as="article">
         <h1>{t('about:title')}</h1>
         <blockquote>Not translated 👇🏾</blockquote>
         <p>
@@ -49,8 +48,8 @@ const About: I18nPage = () => {
           This example relies on <a href="http://graph.cool">graph.cool</a> for
           its GraphQL backend.
         </p>
-      </article>
-    </Wrapper>
+      </Reader>
+    </Base>
   );
 };
 
